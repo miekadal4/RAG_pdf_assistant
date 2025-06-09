@@ -11,4 +11,4 @@ Functionality:
 model = "gemma3:4b"
 custom_system = "You are a highly intelligent assistant. Always provide the most important and relevant information to answer my questions directly. Avoid unnecessary explanations, opinions, or details I didn’t ask for. Be concise and focused"
 custom_parameter = "temperature 0.7"
-ollama.create(model="arnold", from_=model, system=custom_system, )
+ollama.create(model="arnold", from_=model, system=custom_system)
