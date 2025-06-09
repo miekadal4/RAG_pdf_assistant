@@ -2,9 +2,9 @@
 
 Interact with your PDF documents using open-source large language models — **locally** and **securely**. This project leverages **Retrieval-Augmented Generation (RAG)** and **Ollama** to let you upload a PDF and chat with its contents in natural language.
 
-<img src="https://github.com/JavierKaiser9/RAG_pdf_assistant/blob/master/chat_demo.png" width="400" alt="image" title="image" />
-
 > No APIs. No internet. 100% local. 100% open-source.
+
+<img src="https://github.com/JavierKaiser9/RAG_pdf_assistant/blob/master/chat_demo.png" width="700" alt="image" title="image" />
 
 ---
 
