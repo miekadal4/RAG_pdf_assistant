@@ -1,6 +1,6 @@
 # 📄 Local RAG-Powered Assistant
 
-Interact with your PDF documents using open-source large language models — **locally** and **securely**. This project leverages **Retrieval-Augmented Generation (RAG)** and **Ollama** to let you upload a PDF and chat with its contents in natural language.
+Interact with your PDF documents using open-source large language models **locally** and **securely**. This project leverages **Retrieval-Augmented Generation (RAG)** and **Ollama** to let you upload a PDF and chat with its contents in natural language.
 
 > No APIs. No internet. 100% local. 100% open-source.
 
