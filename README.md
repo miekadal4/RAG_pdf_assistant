@@ -2,6 +2,8 @@
 
 Interact with your PDF documents using open-source large language models — **locally** and **securely**. This project leverages **Retrieval-Augmented Generation (RAG)** and **Ollama** to let you upload a PDF and chat with its contents in natural language.
 
+<img src="https://github.com/JavierKaiser9/RAG_pdf_assistant/blob/master/chat_demo.png" width="400" alt="image" title="image" />
+
 > No APIs. No internet. 100% local. 100% open-source.
 
 ---
@@ -65,6 +67,34 @@ The `arnold` model was created using a separate script (`custom_llm_arnold.py`),
 
 ---
 
-## 📦 Environment Setup
+## 🖥️ Performance Insights
 
-All required dependencies are listed in the [`requirements.txt`](./requirements.txt) file.
+This project has been tested **locally** using the following hardware configuration:
+
+| Component        | Model                      | Utilization |
+|------------------|----------------------------|-------------|
+| 🧠 **CPU**       | AMD Ryzen 7 6800H          | ~54% usage during inference |
+| 🎮 **GPU**       | NVIDIA GeForce RTX 3050    | ~40% usage with `nomic-embed-text` and LLMs |
+
+> ⚡ **Result**: Smooth interaction, real-time responses, and fast embedding/answering — all on local resources.
+
+✅ These results indicate this app is efficient and **runnable on mid-tier hardware** with no cloud dependency.
+
+---
+
+## 🚀 Quickstart
+
+Make sure you have Python 3.10 installed. Then:
+
+```bash
+# Install required packages
+pip install -r requirements.txt
+
+# Pull the necessary models (can take a few minutes the first time)
+ollama pull nomic-embed-text
+ollama pull arnold
+ollama pull qwen3:8b
+ollama pull gemma3:4b
+
+# Run the app
+streamlit run main.py
