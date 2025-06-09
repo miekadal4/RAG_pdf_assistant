@@ -1,0 +1,7 @@
+streamlit>=1.33.0
+streamlit-chat
+langchain>=0.1.0
+langchain-community>=0.0.26
+langchain-ollama>=0.1.0
+pypdf
+chromadb>=0.4.22
